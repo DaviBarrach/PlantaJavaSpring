@@ -14,6 +14,7 @@ public class PlantaService {
         this.repository = repository;
     }
 
+    //aí coloca no Controller
     public void salvarPlanta(Planta planta){
         repository.saveAndFlush(planta);
     }
