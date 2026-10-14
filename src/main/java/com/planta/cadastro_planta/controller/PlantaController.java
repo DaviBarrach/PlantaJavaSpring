@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController //entende que é Controller
 @RequestMapping("/planta") //mapear URL
-@RequiredArgsConstructor //para não precisar criar o construtorrr
 public class PlantaController {
 
     //obs: cada verbo http (esses @) é uma ação do crud
