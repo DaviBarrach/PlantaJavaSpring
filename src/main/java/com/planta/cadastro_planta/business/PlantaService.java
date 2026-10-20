@@ -4,6 +4,8 @@ import com.planta.cadastro_planta.infrastructure.entitys.Planta;
 import com.planta.cadastro_planta.infrastructure.repository.PlantaRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class PlantaService {
 
@@ -12,6 +14,10 @@ public class PlantaService {
 
     public PlantaService(PlantaRepository repository){
         this.repository = repository;
+    }
+
+    public List<Planta> listarPlantas() {
+        return repository.findAll();
     }
 
     //aí coloca no Controller

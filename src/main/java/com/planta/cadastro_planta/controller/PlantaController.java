@@ -6,6 +6,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController //entende que é Controller
 @RequestMapping("/planta") //mapear URL
 @RequiredArgsConstructor //para não precisar criar o construtor
@@ -16,6 +18,11 @@ public class PlantaController {
     private final PlantaService plantaService; //para usar o CRUD
 
     //esses daqui são métodos do service desenvolvidos
+    @GetMapping("/todas")
+    public ResponseEntity<List<Planta>> listarPlantas(){
+        return ResponseEntity.ok(plantaService.listarPlantas());
+    }
+
     @PostMapping
     //RequestBody exige um conteúdo preenchido
     //RequestParam exige apenas um parametro
@@ -26,6 +33,7 @@ public class PlantaController {
     }
 
     @GetMapping
+
     public ResponseEntity<Planta> buscarPlantaPorClassificacao(@RequestParam String classificacao){
         return ResponseEntity.ok(plantaService.buscarPlantaPorClassificacao(classificacao));
     }
