@@ -48,7 +48,11 @@ public class PlantaService {
                 .nome(planta.getNome() != null ? planta.getNome() : plantaEntity.getNome())
                 .classificacao(planta.getClassificacao() != null ? planta.getClassificacao() : plantaEntity.getClassificacao())
                 .porte(planta.getPorte() != null ? planta.getPorte() : plantaEntity.getPorte())
-                .gostaAgua(planta.isGostaAgua() ? true : plantaEntity.isGostaAgua())
+                .gostaAgua(
+                        planta.getGostaAgua() != null
+                                ? planta.getGostaAgua()
+                                : plantaEntity.getGostaAgua()
+                )
                 .id(plantaEntity.getId())
                 .build();
 
