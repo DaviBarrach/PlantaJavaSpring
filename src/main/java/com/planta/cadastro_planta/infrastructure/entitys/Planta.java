@@ -26,7 +26,7 @@ public class Planta {
     private String porte;
 
     @Column(name = "gosta_agua")
-    private boolean gostaAgua;
+    private Boolean gostaAgua;
 
 
 
