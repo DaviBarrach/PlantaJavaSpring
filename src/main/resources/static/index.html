@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Meu Jardim - Cadastro de Plantas</title>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Cabeçalho -->
+  <header>
+    <div class="topo">
+      <span class="logo">
+        <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 27V14M16 18c-5 0-8-3-8-8 5 0 8 3 8 8zm0-3c0-4 3-8 8-8 0 5-3 8-8 8z"/></svg>
+      </span>
+      <div>
+        <h1>Meu Jardim 🌸</h1>
+        <p>Cadastre, consulte e cuide das suas plantas</p>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- Lista e busca -->
+    <section class="caixa">
+      <div class="titulo">
+        <span class="icone-titulo">
+          <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 27V14M16 18c-5 0-8-3-8-8 5 0 8 3 8 8zm0-3c0-4 3-8 8-8 0 5-3 8-8 8z"/></svg>
+        </span>
+        <div>
+          <h2>Minhas plantas</h2>
+          <p class="sub">Gerencie seu jardim e mantenha tudo organizado!</p>
+        </div>
+      </div>
+
+      <form id="form-busca" class="busca">
+        <div class="campo-busca">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+          <input id="busca" type="text" placeholder="Buscar pela classificação (ex.: Folhagem)">
+        </div>
+        <button type="submit" class="verde">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+          Buscar
+        </button>
+        <button type="button" id="btn-todas" class="cinza">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+          Ver todas
+        </button>
+      </form>
+
+      <p id="mensagem" hidden></p>
+
+      <div id="lista" class="lista"></div>
+    </section>
+
+    <!-- Formulário: serve para CADASTRAR (POST) e EDITAR (PUT) -->
+    <section class="caixa caixa-form">
+      <div class="titulo">
+        <span class="icone-titulo">
+          <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 27V14M16 18c-5 0-8-3-8-8 5 0 8 3 8 8zm0-3c0-4 3-8 8-8 0 5-3 8-8 8z"/></svg>
+        </span>
+        <div>
+          <h2 id="titulo-form">Nova planta</h2>
+          <p class="sub" id="subtitulo-form">Adicione uma nova planta ao seu jardim!</p>
+        </div>
+      </div>
+
+      <form id="form" class="campos">
+        <label>Nome
+          <input id="nome" type="text" placeholder="Ex.: Samambaia" required>
+        </label>
+
+        <label>Classificação
+          <input id="classificacao" type="text" placeholder="Ex.: Folhagem" required>
+        </label>
+
+        <label>Porte
+          <select id="porte" required>
+            <option value="Pequeno">Pequeno</option>
+            <option value="Médio">Médio</option>
+            <option value="Grande">Grande</option>
+          </select>
+        </label>
+
+        <label class="checkbox">
+          <input id="gostaAgua" type="checkbox">
+          <svg class="gota" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3c3.5 4.4 6 7.6 6 11a6 6 0 0 1-12 0c0-3.4 2.5-6.6 6-11z"/></svg>
+          Gosta de água
+        </label>
+
+        <div class="botoes">
+          <button type="submit" id="btn-salvar" class="verde">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+            <span id="txt-salvar">Cadastrar planta</span>
+          </button>
+          <button type="button" id="btn-cancelar" class="cinza" hidden>Cancelar edição</button>
+        </div>
+      </form>
+
+      <img class="vaso" src="img/vaso-grande.svg" alt="">
+    </section>
+
+  </main>
+
+  <script src="js/app.js"></script>
+</body>
+</html>

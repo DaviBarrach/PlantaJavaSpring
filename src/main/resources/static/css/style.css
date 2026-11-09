@@ -1,0 +1,150 @@
+/* ============ Cores do tema ============ */
+:root {
+  --verde: #2f6f43;
+  --verde-escuro: #1f5a37;
+  --verde-claro: #e4f1e3;
+  --fundo: #f7f6ee;
+  --borda: #dfe5d6;
+  --texto: #243b2c;
+  --suave: #6b7f70;
+  --azul: #2d7fa8;
+  --azul-claro: #e1f1f8;
+  --vermelho: #c0392b;
+  --sombra: 0 4px 18px rgba(31, 90, 55, .09);
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: 'Nunito', Arial, sans-serif;
+  color: var(--texto);
+  background: var(--fundo) url(../img/folhas-fundo.svg) no-repeat right 30px bottom 0 / 300px fixed;
+}
+
+/* Ícones em linha (todos os SVG pequenos da página) */
+button svg, .campo-busca svg, .chip svg, .gota {
+  width: 18px; height: 18px; flex: none;
+  fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;
+}
+
+/* ============ Cabeçalho ============ */
+header {
+  background-color: var(--verde-escuro);
+  background-image: url(../img/ramo-esq.svg), url(../img/ramo-dir.svg);
+  background-repeat: no-repeat;
+  background-position: left top, right top;
+  background-size: 280px, 280px;
+  color: white;
+  padding: 22px 16px;
+}
+.topo { max-width: 960px; margin: 0 auto; display: flex; align-items: center; gap: 14px; }
+.logo {
+  display: grid; place-items: center; width: 46px; height: 46px; border-radius: 12px;
+  background: #3f8a58; border: 2px solid rgba(255, 255, 255, .35);
+}
+.logo svg { width: 30px; height: 30px; fill: none; stroke: white; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+header h1 { margin: 0; font-size: 1.7rem; font-weight: 800; line-height: 1.15; }
+header p { margin: 2px 0 0; font-size: .95rem; opacity: .9; }
+
+/* ============ Caixas ============ */
+main { max-width: 960px; margin: 0 auto; padding: 22px 16px 48px; }
+
+.caixa {
+  position: relative;
+  background: white;
+  border: 1px solid var(--borda);
+  border-radius: 14px;
+  padding: 22px;
+  margin-bottom: 22px;
+  box-shadow: var(--sombra);
+}
+
+.titulo { display: flex; align-items: center; gap: 12px; margin-bottom: 18px; }
+.icone-titulo { display: grid; place-items: center; width: 40px; height: 40px; border-radius: 12px; background: var(--verde-claro); }
+.icone-titulo svg { width: 26px; height: 26px; fill: none; stroke: var(--verde); stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.titulo h2 { margin: 0; font-size: 1.25rem; color: var(--verde-escuro); line-height: 1.2; }
+.sub { margin: 2px 0 0; font-size: .9rem; color: var(--suave); }
+
+/* ============ Botões ============ */
+button {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  font: inherit; font-weight: 700; border-radius: 10px; cursor: pointer;
+  padding: 10px 18px; border: 1px solid transparent;
+}
+button:hover { filter: brightness(.95); }
+button.verde { background: var(--verde); color: white; }
+button.cinza { background: white; color: var(--verde-escuro); border-color: #c5d3c0; }
+.botoes { display: flex; gap: 10px; flex-wrap: wrap; }
+button[hidden] { display: none; }
+
+/* ============ Busca ============ */
+.busca { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 16px; }
+.campo-busca {
+  flex: 1 1 240px; display: flex; align-items: center; gap: 8px; padding: 0 14px;
+  background: white; border: 1px solid #c5d3c0; border-radius: 10px; color: var(--suave);
+}
+.campo-busca:focus-within { border-color: var(--verde); box-shadow: 0 0 0 3px rgba(47, 111, 67, .15); }
+.campo-busca input[type="text"] { flex: 1; min-width: 0; margin: 0; border: 0; border-radius: 0; box-shadow: none; outline: 0; background: none; padding: 11px 0; }
+
+/* ============ Mensagens ============ */
+#mensagem { padding: 11px 14px; border-radius: 10px; font-weight: 600; margin: 0 0 16px; }
+#mensagem.ok { background: #e3f3e6; color: var(--verde-escuro); }
+#mensagem.aviso { background: #fbf1d6; color: #735200; }
+#mensagem.erro { background: #fbe4e1; color: var(--vermelho); }
+#mensagem[hidden] { display: none; }
+
+/* ============ Cards das plantas ============ */
+.lista { display: grid; grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); gap: 14px; }
+.vazio { grid-column: 1 / -1; text-align: center; color: var(--suave); padding: 24px; }
+
+.card {
+  display: flex; gap: 14px; padding: 12px 14px 12px 12px;
+  background: white; border: 1px solid var(--borda); border-left: 5px solid var(--verde); border-radius: 12px;
+}
+.miniatura { width: 92px; height: 92px; flex: none; border-radius: 10px; background: #f1f0e6; }
+.info { flex: 1; min-width: 0; }
+.card h3 { margin: 0; font-size: 1.1rem; overflow-wrap: anywhere; }
+.classificacao { margin: 1px 0 6px; font-style: italic; color: var(--suave); font-size: .92rem; overflow-wrap: anywhere; }
+
+.chips { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 8px; }
+.chip { display: inline-flex; align-items: center; gap: 4px; padding: 2px 9px; border-radius: 999px; font-size: .8rem; font-weight: 700; }
+.chip svg { width: 13px; height: 13px; }
+.chip.verde-claro { background: var(--verde-claro); color: var(--verde-escuro); }
+.chip.azul { background: var(--azul-claro); color: var(--azul); }
+
+.card .botoes { gap: 8px; }
+.card button { flex: 1; padding: 5px 8px; font-size: .88rem; background: white; }
+.card button svg { width: 15px; height: 15px; }
+.card .editar { color: var(--verde-escuro); border-color: var(--verde); }
+.card .excluir { color: var(--vermelho); border-color: #e6b8b1; }
+
+/* ============ Formulário ============ */
+.campos { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px 18px; max-width: 560px; }
+.campos label { font-weight: 700; font-size: .95rem; }
+.campos .botoes { grid-column: 1 / -1; }
+input[type="text"], select {
+  display: block; width: 100%; margin-top: 6px; padding: 11px 13px;
+  font: inherit; font-weight: 400; color: var(--texto);
+  border: 1px solid #c5d3c0; border-radius: 10px; background: white;
+}
+input[type="text"]:focus, select:focus { outline: none; border-color: var(--verde); box-shadow: 0 0 0 3px rgba(47, 111, 67, .15); }
+label.checkbox { display: flex; align-items: center; gap: 8px; align-self: end; padding-bottom: 10px; cursor: pointer; }
+label.checkbox input { width: 20px; height: 20px; accent-color: var(--verde); }
+.gota { color: var(--azul); }
+
+.vaso { position: absolute; right: 24px; bottom: 16px; width: 230px; pointer-events: none; }
+
+/* ============ Telas menores ============ */
+@media (max-width: 860px) {
+  .vaso { display: none; }
+  body { background-image: none; }
+}
+@media (max-width: 560px) {
+  header { background-size: 160px, 160px; }
+  header h1 { font-size: 1.4rem; }
+  .campos { grid-template-columns: 1fr; }
+  label.checkbox { padding-bottom: 0; }
+  .card { flex-direction: column; }
+  .miniatura { width: 100%; height: 120px; object-fit: contain; }
+}
